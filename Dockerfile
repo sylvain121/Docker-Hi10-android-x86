@@ -2,7 +2,7 @@ FROM    ubuntu:rolling
 MAINTAINER      sylvain121
 
 ENV     DEBIAN_FRONTEND=noninteractive
-ENV 	BRANCH=nougat-x86
+ENV 	BRANCH=oreo-x86
 ENV 	USER=root
 RUN     apt-get update
 RUN     apt-get dist-upgrade -y
@@ -21,6 +21,8 @@ RUN     pip install prettytable Mako pyaml dateutils --upgrade
 RUN 	apt-get install bc kmod -y
 RUN 	apt-get install genisoimage -y 
 RUN 	apt-get install syslinux-utils -y
+ADD     init /bin/
+RUN     chmod a+x /bin/init
 VOLUME	/root/android-x86
-WORKDIR /root/android-X86
+WORKDIR /root/android-x86
 CMD	bash syncAndBuild.sh
