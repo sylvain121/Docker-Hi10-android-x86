@@ -22,8 +22,8 @@ RUN     pip install prettytable Mako pyaml dateutils --upgrade
 RUN 	apt-get install bc kmod -y
 RUN 	apt-get install genisoimage -y 
 RUN 	apt-get install syslinux-utils -y
-ADD     init /bin/
-RUN     chmod a+x /bin/init
+ADD     initRepo /bin/
+RUN     chmod a+x /bin/initRepo
 VOLUME	/root/android-x86
 WORKDIR /root/android-x86
 CMD	bash syncAndBuild.sh

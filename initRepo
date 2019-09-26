@@ -1,2 +1,3 @@
+#! /bin/bash
 repo init -u git://git.osdn.net/gitroot/android-x86/manifest -b $BRANCH
 repo sync --no-tags --no-clone-bundle
