@@ -3,7 +3,7 @@ MAINTAINER      sylvain121
 
 ENV     DEBIAN_FRONTEND=noninteractive
 ENV 	BRANCH=oreo-x86
-ENV     JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
+ENV     JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx8g"
 ENV 	USER=root
 RUN     apt-get update
 RUN     apt-get dist-upgrade -y
@@ -19,6 +19,7 @@ RUN 	mkdir /root/android-x86
 RUN     chmod a+x /sbin/syncAndBuild.sh
 RUN     apt-get install python-pip libyaml-dev libxml2-utils -y
 RUN     pip install prettytable Mako pyaml dateutils --upgrade
+RUN     apt-get install -y dosfstools mtools libncurses-dev flex
 RUN 	apt-get install bc kmod -y
 RUN 	apt-get install genisoimage -y 
 RUN 	apt-get install syslinux-utils -y
